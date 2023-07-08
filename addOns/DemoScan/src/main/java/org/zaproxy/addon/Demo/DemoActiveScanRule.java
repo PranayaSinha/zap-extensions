@@ -20,10 +20,9 @@
 package org.zaproxy.addon.Demo;
 
 import java.io.IOException;
-import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.parosproxy.paros.core.scanner.AbstractAppParamPlugin;
+import org.parosproxy.paros.core.scanner.AbstractAppPlugin;
 import org.parosproxy.paros.core.scanner.Alert;
 import org.parosproxy.paros.core.scanner.Category;
 import org.parosproxy.paros.network.HttpMessage;
@@ -36,12 +35,10 @@ import org.zaproxy.zap.model.Vulnerability;
  *
  * @author psiinon
  */
-public class DemoActiveScanRule extends AbstractAppParamPlugin {
+public class DemoActiveScanRule extends AbstractAppPlugin {
 
     // wasc_10 is Denial of Service - well, its just an example ;)
     private static Vulnerability vuln = Vulnerabilities.getVulnerability("wasc_10");
-
-    private Random rnd = new Random();
 
     private static final Logger LOGGER = LogManager.getLogger(DemoActiveScanRule.class);
 
@@ -57,9 +54,9 @@ public class DemoActiveScanRule extends AbstractAppParamPlugin {
     @Override
     public String getName() {
         // Strip off the "Example Active Scan Rule: " part if implementing a real one ;)
-        if (vuln != null) {
-            return "Example Active Scan Rule: " + vuln.getAlert();
-        }
+        // if (vuln != null) {
+        //     return "Example Active Scan Rule: " + vuln.getAlert();
+        // }
         return "Pranaya Sinha: Demo Active Scan Rule";
     }
 
@@ -115,7 +112,9 @@ public class DemoActiveScanRule extends AbstractAppParamPlugin {
      * @see org.parosproxy.paros.core.scanner.AbstractAppParamPlugin#scan(org.parosproxy.paros.network.HttpMessage, java.lang.String, java.lang.String)
      */
     @Override
-    public void scan(HttpMessage msg, String param, String value) {
+    public void scan() {
+        HttpMessage msg = getBaseMsg();
+
         // List of possible debug endpoints
         String[] debugEndpoints = {
             "/debug",
@@ -206,12 +205,12 @@ public class DemoActiveScanRule extends AbstractAppParamPlugin {
     @Override
     public int getCweId() {
         // The CWE id
-        return 0;
+        return 215;
     }
 
     @Override
     public int getWascId() {
         // The WASC ID
-        return 0;
+        return 13;
     }
 }

@@ -1,4 +1,5 @@
 description = "Pranaya Sinha: Active Scan Demo"
+version = "1.1.1"
 
 zapAddOn {
     addOnName.set("ActiveScanDemo")

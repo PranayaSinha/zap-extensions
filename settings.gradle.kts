@@ -45,7 +45,7 @@ var addOns = listOf(
     "coreLang",
     "custompayloads",
     "database",
-    "Demo",
+    "DemoScan",
     "dev",
     "diff",
     "directorylistv1",
