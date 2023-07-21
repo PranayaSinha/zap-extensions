@@ -4,6 +4,9 @@ All notable changes to this add-on will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
+
+
+## [56] - 2023-07-11
 ### Added
 - The Format String Error scan rule now includes example alert functionality for documentation generation purposes (Issue 6119).
 - Corrected Hidden File Finder scan rule Blazor WASM config file path.
@@ -14,6 +17,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Server Side Template Injection
   - Server Side Template Injection (Blind)
   - XPath Injection
+
+### Changed
+- Update minimum ZAP version to 2.13.0.
 
 ## [55] - 2023-06-06
 ### Changed
@@ -428,6 +434,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 
 
+[56]: https://github.com/zaproxy/zap-extensions/releases/ascanrules-v56
 [55]: https://github.com/zaproxy/zap-extensions/releases/ascanrules-v55
 [54]: https://github.com/zaproxy/zap-extensions/releases/ascanrules-v54
 [53]: https://github.com/zaproxy/zap-extensions/releases/ascanrules-v53

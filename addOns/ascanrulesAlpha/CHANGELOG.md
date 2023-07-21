@@ -4,7 +4,11 @@ All notable changes to this add-on will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
+
+
+## [43] - 2023-07-20
 ### Changed
+- Update minimum ZAP version to 2.13.0.
 - Maintenance changes.
 
 ### Removed
@@ -344,6 +348,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - First version, including persistent XSS tests
 
+[43]: https://github.com/zaproxy/zap-extensions/releases/ascanrulesAlpha-v43
 [42]: https://github.com/zaproxy/zap-extensions/releases/ascanrulesAlpha-v42
 [41]: https://github.com/zaproxy/zap-extensions/releases/ascanrulesAlpha-v41
 [40]: https://github.com/zaproxy/zap-extensions/releases/ascanrulesAlpha-v40

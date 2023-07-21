@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 
+## [1.2.0] - 2023-07-11
+### Changed
+- Update minimum ZAP version to 2.13.0.
+
 ## [1.1.0] - 2023-03-13
 ### Changed
 - Maintenance changes.
@@ -81,6 +85,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First version.
 
+[1.2.0]: https://github.com/zaproxy/zap-extensions/releases/encoder-v1.2.0
 [1.1.0]: https://github.com/zaproxy/zap-extensions/releases/encoder-v1.1.0
 [1.0.0]: https://github.com/zaproxy/zap-extensions/releases/encoder-v1.0.0
 [0.7.0]: https://github.com/zaproxy/zap-extensions/releases/encoder-v0.7.0

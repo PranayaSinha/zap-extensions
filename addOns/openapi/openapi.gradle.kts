@@ -5,7 +5,6 @@ description = "Imports and spiders OpenAPI definitions."
 zapAddOn {
     addOnName.set("OpenAPI Support")
     addOnStatus.set(AddOnStatus.BETA)
-    zapVersion.set("2.12.0")
 
     manifest {
         author.set("ZAP Dev Team plus Joanna Bona, Nathalie Bouchahine, Artur Grzesica, Mohammad Kamar, Markus Kiss, Michal Materniak, Marcin Spiewak, and SDA SE Open Industry Solutions")
@@ -77,7 +76,7 @@ dependencies {
     compileOnly(parent!!.childProjects.get("formhandler")!!)
     compileOnly(parent!!.childProjects.get("spider")!!)
 
-    implementation("io.swagger.parser.v3:swagger-parser:2.1.15")
+    implementation("io.swagger.parser.v3:swagger-parser:2.1.16")
     implementation("io.swagger:swagger-compat-spec-parser:1.0.67") {
         // Not needed:
         exclude(group = "com.github.java-json-tools", module = "json-schema-validator")

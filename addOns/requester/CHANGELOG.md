@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 
+## [7.3.0] - 2023-07-11
+### Changed
+- Update minimum ZAP version to 2.13.0.
+
 ## [7.2.0] - 2023-03-23
 ### Changed
 - Maintenance changes.
@@ -81,6 +85,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 
+[7.3.0]: https://github.com/zaproxy/zap-extensions/releases/requester-v7.3.0
 [7.2.0]: https://github.com/zaproxy/zap-extensions/releases/requester-v7.2.0
 [7.1.0]: https://github.com/zaproxy/zap-extensions/releases/requester-v7.1.0
 [7.0.0]: https://github.com/zaproxy/zap-extensions/releases/requester-v7.0.0

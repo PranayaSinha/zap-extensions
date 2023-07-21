@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 
+## [39] - 2023-07-11
+### Changed
+- Update minimum ZAP version to 2.13.0.
+
 ## [38] - 2023-03-29
 ### Fixed
 - extender/Copy as curl command menu.js - prevent and warn on local file inclusion when generating the command.
@@ -240,6 +244,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 
 
+[39]: https://github.com/zaproxy/zap-extensions/releases/scripts-v39
 [38]: https://github.com/zaproxy/zap-extensions/releases/scripts-v38
 [37]: https://github.com/zaproxy/zap-extensions/releases/scripts-v37
 [36]: https://github.com/zaproxy/zap-extensions/releases/scripts-v36

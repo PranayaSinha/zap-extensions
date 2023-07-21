@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## Unreleased
 ### Changed
+- Dependency updates.
+- Maintenance changes.
+
+## [0.18.0] - 2023-07-11
+### Changed
+- Update minimum ZAP version to 2.13.0.
 - The "Import a GraphQL Schema from a File" and "Import a GraphQL schema from a URL" menu items were merged into one,
   "Import a GraphQL schema".
 - The Import dialog shows the values used in the previous import when reopened.
@@ -142,6 +148,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   - Import a GraphQL Schema
   - Generate Queries from an imported Schema
 
+[0.18.0]: https://github.com/zaproxy/zap-extensions/releases/graphql-v0.18.0
 [0.17.0]: https://github.com/zaproxy/zap-extensions/releases/graphql-v0.17.0
 [0.16.0]: https://github.com/zaproxy/zap-extensions/releases/graphql-v0.16.0
 [0.15.0]: https://github.com/zaproxy/zap-extensions/releases/graphql-v0.15.0

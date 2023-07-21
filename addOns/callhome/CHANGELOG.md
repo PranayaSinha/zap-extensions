@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 
+## [0.7.0] - 2023-07-11
+### Changed
+- Update minimum ZAP version to 2.13.0.
+
 ## [0.6.0] - 2022-12-02
 ### Fixed
 - Include container field for CFUs.
@@ -56,6 +60,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - First version supports Check for Updates and News calls.
 
+[0.7.0]: https://github.com/zaproxy/zap-extensions/releases/callhome-v0.7.0
 [0.6.0]: https://github.com/zaproxy/zap-extensions/releases/callhome-v0.6.0
 [0.5.0]: https://github.com/zaproxy/zap-extensions/releases/callhome-v0.5.0
 [0.4.0]: https://github.com/zaproxy/zap-extensions/releases/callhome-v0.4.0

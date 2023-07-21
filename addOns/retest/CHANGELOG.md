@@ -5,7 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+
+
+## [0.6.0] - 2023-07-11
 ### Changed
+- Update minimum ZAP version to 2.13.0.
 - Maintenance changes.
 
 ## [0.5.0] - 2023-01-03
@@ -45,6 +49,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Allow retesting for the presence/absence of certain alerts using the Automation Framework.
 
 
+[0.6.0]: https://github.com/zaproxy/zap-extensions/releases/retest-v0.6.0
 [0.5.0]: https://github.com/zaproxy/zap-extensions/releases/retest-v0.5.0
 [0.4.0]: https://github.com/zaproxy/zap-extensions/releases/retest-v0.4.0
 [0.3.0]: https://github.com/zaproxy/zap-extensions/releases/retest-v0.3.0

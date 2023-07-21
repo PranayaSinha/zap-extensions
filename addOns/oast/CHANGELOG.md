@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+
+
+## [0.16.0] - 2023-07-11
 ### Changed
+- Update minimum ZAP version to 2.13.0.
 - Replace usage of singletons with injected variables (e.g. `model`, `control`) in scripts.
 
 ## [0.15.0] - 2023-03-13
@@ -150,6 +154,7 @@ Button is disabled in that case.
 
 ## [0.1.0] - 2021-08-04
 
+[0.16.0]: https://github.com/zaproxy/zap-extensions/releases/oast-v0.16.0
 [0.15.0]: https://github.com/zaproxy/zap-extensions/releases/oast-v0.15.0
 [0.14.0]: https://github.com/zaproxy/zap-extensions/releases/oast-v0.14.0
 [0.13.0]: https://github.com/zaproxy/zap-extensions/releases/oast-v0.13.0

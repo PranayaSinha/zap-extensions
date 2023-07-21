@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 
+## [38] - 2023-07-11
+### Changed
+- Update minimum ZAP version to 2.13.0.
+
 ## [37] - 2023-03-13
 ### Changed
 - Maintenance changes.
@@ -195,6 +199,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 
 
+[38]: https://github.com/zaproxy/zap-extensions/releases/quickstart-v38
 [37]: https://github.com/zaproxy/zap-extensions/releases/quickstart-v37
 [36]: https://github.com/zaproxy/zap-extensions/releases/quickstart-v36
 [35]: https://github.com/zaproxy/zap-extensions/releases/quickstart-v35

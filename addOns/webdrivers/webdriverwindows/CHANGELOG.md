@@ -6,85 +6,63 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 
+## [56] - 2023-07-11
+### Changed
+- Update minimum ZAP version to 2.13.0.
+
 ## [55] - 2023-06-01
 ### Changed
 - Update ChromeDriver to 114.0.5735.90.
-
-
 
 ## [54] - 2023-05-04
 ### Changed
 - Update ChromeDriver to 113.0.5672.63.
 
-
-
 ## [53] - 2023-04-06
 ### Changed
 - Update ChromeDriver to 112.0.5615.49.
-
-
 
 ## [52] - 2023-04-04
 ### Changed
 - Update geckodriver to 0.33.0.
 
-
-
 ## [51] - 2023-03-09
 ### Changed
 - Update ChromeDriver to 111.0.5563.64.
-
-
 
 ## [50] - 2023-02-08
 ### Changed
 - Update geckodriver to 0.32.2.
 - Update ChromeDriver to 110.0.5481.77.
 
-
-
 ## [49] - 2023-02-02
 ### Changed
 - Update geckodriver to 0.32.1.
-
-
 
 ## [48] - 2023-01-12
 ### Changed
 - Update ChromeDriver to 109.0.5414.74.
 
-
-
 ## [47] - 2022-12-01
 ### Changed
 - Update ChromeDriver to 108.0.5359.71.
-
-
 
 ## [46] - 2022-10-27
 ### Changed
 - Update minimum ZAP version to 2.12.0.
 - Update ChromeDriver to 107.0.5304.62.
 
-
-
 ## [45] - 2022-10-14
 ### Changed
 - Update geckodriver to 0.32.0.
-
-
 
 ## [44] - 2022-09-29
 ### Changed
 - Update ChromeDriver to 106.0.5249.61.
 
-
-
 ## [43] - 2022-09-01
 ### Changed
 - Update ChromeDriver to 105.0.5195.52.
-
-
 
 ## [42] - 2022-08-04
 ### Changed
@@ -276,6 +254,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - First release: Firefox v0.13.0 Chrome v2.27 IE 3.0.0
 
+[56]: https://github.com/zaproxy/zap-extensions/releases/webdriverwindows-v56
 [55]: https://github.com/zaproxy/zap-extensions/releases/webdriverwindows-v55
 [54]: https://github.com/zaproxy/zap-extensions/releases/webdriverwindows-v54
 [53]: https://github.com/zaproxy/zap-extensions/releases/webdriverwindows-v53

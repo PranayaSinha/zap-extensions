@@ -4,10 +4,14 @@ All notable changes to this add-on will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
+
+
+## [39] - 2023-07-11
 ### Added 
 - Dialogs for scroll, scrollTo, window resize and mouse over.
 
 ### Changed
+- Update minimum ZAP version to 2.13.0.
 - Update Zest library to 0.18.0:
   - Update Selenium to version 4.
   - jBrowserDriver (JBD), Opera, and PhantomJS are no longer supported (no longer being actively maintained).
@@ -282,6 +286,7 @@ Sender scripts. (Issue 5590)
 
 - Updated for 2.1.0
 
+[39]: https://github.com/zaproxy/zap-extensions/releases/zest-v39
 [38]: https://github.com/zaproxy/zap-extensions/releases/zest-v38
 [37]: https://github.com/zaproxy/zap-extensions/releases/zest-v37
 [36]: https://github.com/zaproxy/zap-extensions/releases/zest-v36
