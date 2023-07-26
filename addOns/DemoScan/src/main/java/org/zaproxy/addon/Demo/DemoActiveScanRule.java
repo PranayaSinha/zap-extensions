@@ -173,7 +173,7 @@ public class DemoActiveScanRule extends AbstractAppPlugin {
                 int responseCode = testMsg.getResponseHeader().getStatusCode();
                 String responseBody = testMsg.getResponseBody().toString();
 
-                if (responseCode == 200 && responseBody.contains("debug")) {
+                if (responseCode == 200 ) {
                     // We've found a possible debug endpoint
                     newAlert()
                             .setRisk(Alert.RISK_HIGH)
