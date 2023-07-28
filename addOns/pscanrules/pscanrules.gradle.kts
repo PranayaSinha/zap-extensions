@@ -39,13 +39,10 @@ dependencies {
     implementation("com.google.re2j:re2j:1.6")
     implementation("com.shapesecurity:salvation2:3.0.1")
 
-    compileOnly(parent!!.childProjects.get("commonlib")!!)
-    compileOnly(parent!!.childProjects.get("custompayloads")!!)
+    zapAddOn("commonlib")
+    zapAddOn("custompayloads")
 
-    testImplementation(parent!!.childProjects.get("commonlib")!!)
-    testImplementation(parent!!.childProjects.get("custompayloads")!!)
     testImplementation(project(":testutils"))
-    testImplementation("org.apache.commons:commons-lang3:3.12.0")
 }
 
 spotless {
