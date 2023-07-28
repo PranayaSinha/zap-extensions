@@ -65,6 +65,7 @@ var addOns = listOf(
     "graphql",
     "groovy",
     "highlighter",
+    "HttpParamPol",
     "imagelocationscanner",
     "invoke",
     "jruby",

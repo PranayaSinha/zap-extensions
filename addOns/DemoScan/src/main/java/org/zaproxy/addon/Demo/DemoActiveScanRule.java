@@ -180,13 +180,13 @@ public class DemoActiveScanRule extends AbstractAppPlugin {
                             .setConfidence(Alert.CONFIDENCE_MEDIUM)
                             .setName("Possible Debug Endpoint")
                             .setDescription("The path " + path + " appears to be a debug endpoint.")
-                            .setParam(endpoint)
+                            //.setParam(endpoint)
                             .setSolution(
                                     "Disable or protect the debug endpoint before deploying to production.")
                             .setEvidence(responseBody)
-                            .setCweId(
-                                    215) // CWE-215: Information Exposure Through Debug Information
-                            .setWascId(13) // WASC-13: Information Leakage
+                            // .setCweId(
+                            //         215) // CWE-215: Information Exposure Through Debug Information
+                            // .setWascId(13) // WASC-13: Information Leakage
                             .setMessage(testMsg)
                             .raise();
                     return;
