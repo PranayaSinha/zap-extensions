@@ -34,7 +34,6 @@ allprojects {
     project.plugins.withType(JavaPlugin::class) {
         dependencies {
             "errorprone"("com.google.errorprone:error_prone_core:2.18.0")
-            
         }
 
         configure<JavaPluginConvention> {
