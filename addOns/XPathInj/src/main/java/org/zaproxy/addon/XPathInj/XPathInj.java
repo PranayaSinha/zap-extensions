@@ -89,7 +89,7 @@ public class XPathInj extends AbstractAppParamPlugin {
 
     @Override
     public String getName() {
-        return "XPath Injection Scan";
+        return "Pranaya: XPath Injection Scan";
     }
 
     @Override
