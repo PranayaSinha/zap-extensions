@@ -17,3 +17,10 @@ crowdin {
         tokens.put("%helpPath%", resourcesPath)
     }
 }
+
+dependencies {
+    compileOnly(parent!!.childProjects.get("commonlib")!!)
+    testImplementation(parent!!.childProjects.get("commonlib")!!)
+    testImplementation(parent!!.childProjects.get("commonlib")!!.sourceSets.test.get().output)
+    testImplementation("org.apache.commons:commons-lang3:3.12")
+}

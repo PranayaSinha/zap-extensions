@@ -118,6 +118,7 @@ var addOns = listOf(
     "webdrivers:webdrivermacos",
     "webdrivers:webdriverwindows",
     "websocket",
+    "XPathInj",
     "zest",
 )
 
