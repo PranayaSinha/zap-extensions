@@ -41,6 +41,7 @@ public class XPathInj extends AbstractAppParamPlugin {
     };
 
     private static final String[] XPATH_ERRORS = {
+        "Secret",
         "XPathException",
         "MS.Internal.Xml.",
         "Unknown error in XPath",
