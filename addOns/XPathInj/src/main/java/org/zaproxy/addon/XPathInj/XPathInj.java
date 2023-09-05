@@ -41,7 +41,7 @@ public class XPathInj extends AbstractAppParamPlugin {
     };
 
     private static final String[] XPATH_ERRORS = {
-        "Secret",
+        "secret",
         "XPathException",
         "MS.Internal.Xml.",
         "Unknown error in XPath",
@@ -143,7 +143,7 @@ public class XPathInj extends AbstractAppParamPlugin {
                 sendAndReceive(newMsg);
                 String responseContent = newMsg.getResponseBody().toString();
                 for (String errorString : XPATH_ERRORS) {
-                    if (responseContent.contains(errorString) && !originalContent.contains(errorString)) {
+                    if (responseContent.toLowerCase().contains(errorString.toLowerCase()) && !originalContent.toLowerCase().contains(errorString.toLowerCase())) {
                         raiseAlert(param, attackPattern, newMsg, errorString);
                         return;  
                     }
