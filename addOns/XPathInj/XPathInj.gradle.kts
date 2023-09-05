@@ -3,7 +3,7 @@ version = "1.1.1"
 
 zapAddOn {
     addOnName.set("XPathInjectionTest")
-    zapVersion.set("2.12.0")
+    zapVersion.set("2.13.0")
 
     manifest {
         author.set("Pranaya")

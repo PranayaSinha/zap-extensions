@@ -13,7 +13,7 @@ import org.parosproxy.paros.core.scanner.AbstractAppParamPlugin;
 import org.parosproxy.paros.core.scanner.Alert;
 import org.parosproxy.paros.core.scanner.Category;
 import org.parosproxy.paros.network.HttpMessage;
-import org.zaproxy.addon.commonlib.CommonAlertTag;
+//import org.zaproxy.addon.commonlib.CommonAlertTag;
 import java.io.IOException;
 
 public class XPathInj extends AbstractAppParamPlugin {
@@ -74,9 +74,13 @@ public class XPathInj extends AbstractAppParamPlugin {
         "Expression must evaluate to a node-set."
     };
 
-    private static final Map<String, String> ALERT_TAGS =
-        CommonAlertTag.toMap(CommonAlertTag.OWASP_2021_A06_VULN_COMP,
-                             CommonAlertTag.OWASP_2017_A09_VULN_COMP);
+    private static final Map<String, String> ALERT_TAGS;
+    
+    static {
+        ALERT_TAGS = new HashMap<>();
+        ALERT_TAGS.put("OWASP_2021_A06_VULN_COMP", "OWASP 2021: Vulnerable and Outdated Components");
+        ALERT_TAGS.put("OWASP_2017_A09_VULN_COMP", "OWASP 2017: Using Components with Known Vulnerabilities");
+    }
 
     @Override
     public int getId() {
