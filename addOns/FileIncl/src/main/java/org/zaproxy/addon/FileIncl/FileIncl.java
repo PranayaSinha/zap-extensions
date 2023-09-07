@@ -183,13 +183,13 @@ public class FileIncl extends AbstractAppPlugin {
                 HttpMessage testMsg = msg.cloneRequest();
                 String originalContent = getBaseMsg().getResponseBody().toString();
 
-                // Get and modify the query parameter "file"
+                // Get and modify the query parameter "path"
                 String query = testMsg.getRequestHeader().getURI().getQuery();
                 if (query != null) {
                     String[] params = query.split("&");
                     for (int j = 0; j < params.length; j++) {
-                        if (params[j].startsWith("file=")) {
-                            params[j] = "file=" + payloadGroup[i];
+                        if (params[j].startsWith("path=")) {
+                            params[j] = "path=" + payloadGroup[i];
                             break;
                         }
                     }
