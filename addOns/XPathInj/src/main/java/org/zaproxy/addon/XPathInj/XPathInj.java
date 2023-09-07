@@ -41,10 +41,15 @@ public class XPathInj extends AbstractAppParamPlugin {
     };
 
     private static final String[] XPATH_ERRORS = {
+        "array",
+        "authentication",
+        "token",
         "secret",
         "logged in",
         "result",
         "key",
+        "welcome",
+        "success",
         "XPathException",
         "MS.Internal.Xml.",
         "Unknown error in XPath",
@@ -139,6 +144,13 @@ public class XPathInj extends AbstractAppParamPlugin {
     @Override
     public void scan(final HttpMessage msg, final String param, final String value) {
         String originalContent = getBaseMsg().getResponseBody().toString();
+
+        log.debug(
+            "Checking [{}] [{}], parameter [{}] for XPath Injection vulnerabilities.",
+            msg.getRequestHeader().getMethod(),
+            msg.getRequestHeader().getURI(),
+            param);
+            
         for (String attackPattern : XPATH_PAYLOADS) {
             try {
                 HttpMessage newMsg = msg.cloneRequest();
@@ -148,7 +160,7 @@ public class XPathInj extends AbstractAppParamPlugin {
                 for (String errorString : XPATH_ERRORS) {
                     if (responseContent.toLowerCase().contains(errorString.toLowerCase()) && !originalContent.toLowerCase().contains(errorString.toLowerCase())) {
                         raiseAlert(param, attackPattern, newMsg, errorString);
-                        return;  
+                        //return;  
                     }
                 }
             } catch (IOException ex) {

@@ -3,7 +3,7 @@ version = "1.1.1"
 
 zapAddOn {
     addOnName.set("ActiveScanDemo")
-    zapVersion.set("2.12.0")
+    zapVersion.set("2.10.0")
 
     manifest {
         author.set("ZAP Dev Team")
