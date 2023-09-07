@@ -1,6 +1,8 @@
 package org.zaproxy.addon.FileIncl;
 
 import java.io.IOException;
+
+import org.apache.commons.httpclient.URIException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.parosproxy.paros.core.scanner.AbstractAppPlugin;
@@ -176,57 +178,74 @@ public class FileIncl extends AbstractAppPlugin {
         };
 
         for (String[] payloadGroup : payloads) {
-            for (int i = 2; i < payloadGroup.length; i++) {
-                try {
-                    HttpMessage testMsg = msg.cloneRequest();
-                    String originalContent = getBaseMsg().getResponseBody().toString();
-                    sendAndReceive(testMsg);
-                    int responseCode = testMsg.getResponseHeader().getStatusCode();
-                    String responseBody = testMsg.getResponseBody().toString();
-        
-                    if (responseCode == 200) {
-                        boolean isFileIncluded = false;
-                        // Indicators of file inclusion 
-                        String[] fileIndicators = {
-                            "root:",
-                            "apache2.conf",
-                            "nginx.conf",
-                            "robots.txt",
-                            "wp-login.php",
-                            "success",
-                            "error",
-                            "warning",
-                            "fail",
-                            "failed",
-                            "congradulations",
-                        };
-                        String indic = "";
-        
-                        for (String indicator : fileIndicators) {
-                            if (responseBody.contains(indicator)) {
-                                isFileIncluded = true;
-                                indic = indicator;
-                                break;
-                            }
-                        }
-                    
-                        if (isFileIncluded && !originalContent.contains(indic)) {
-                            newAlert()
-                                .setRisk(Alert.RISK_HIGH)
-                                .setConfidence(Alert.CONFIDENCE_MEDIUM)
-                                .setName(payloadGroup[0])
-                                .setDescription("The path with " + payloadGroup[i] + " appears to expose sensitive data.")
-                                .setSolution(payloadGroup[1])
-                                .setEvidence(responseBody)
-                                .setMessage(testMsg)
-                                .raise();
+        for (int i = 2; i < payloadGroup.length; i++) {
+            try {
+                HttpMessage testMsg = msg.cloneRequest();
+                String originalContent = getBaseMsg().getResponseBody().toString();
+
+                // Get and modify the query parameter "file"
+                String query = testMsg.getRequestHeader().getURI().getQuery();
+                if (query != null) {
+                    String[] params = query.split("&");
+                    for (int j = 0; j < params.length; j++) {
+                        if (params[j].startsWith("file=")) {
+                            params[j] = "file=" + payloadGroup[i];
+                            break;
                         }
                     }
-                } catch (IOException e) {
-                    LOGGER.error(e.getMessage(), e);
+                    query = String.join("&", params);
+                    testMsg.getRequestHeader().getURI().setQuery(query);
                 }
+
+                // Send the modified request
+                sendAndReceive(testMsg);
+                int responseCode = testMsg.getResponseHeader().getStatusCode();
+                String responseBody = testMsg.getResponseBody().toString();
+
+                if (responseCode == 200) {
+                    boolean isFileIncluded = false;
+                    // Indicators of file inclusion 
+                    String[] fileIndicators = {
+                        "root:",
+                        "apache2.conf",
+                        "nginx.conf",
+                        "robots.txt",
+                        "wp-login.php",
+                        "success",
+                        "error",
+                        "warning",
+                        "fail",
+                        "failed",
+                        "congradulations"
+                    };
+                    String indic = "";
+
+                    for (String indicator : fileIndicators) {
+                        if (responseBody.contains(indicator)) {
+                            isFileIncluded = true;
+                            indic = indicator;
+                            break;
+                        }
+                    }
+                
+                    if (isFileIncluded && !originalContent.contains(indic)) {
+                        newAlert()
+                            .setRisk(Alert.RISK_HIGH)
+                            .setConfidence(Alert.CONFIDENCE_MEDIUM)
+                            .setName(payloadGroup[0])
+                            .setDescription("The path with " + payloadGroup[i] + " appears to expose sensitive data.")
+                            .setSolution(payloadGroup[1])
+                            .setEvidence(responseBody)
+                            .setMessage(testMsg)
+                            .raise();
+                    }
+                }
+            } catch (IOException e) {
+                LOGGER.error(e.getMessage(), e);
             }
         }
+    }
+
 
     }
     @Override
