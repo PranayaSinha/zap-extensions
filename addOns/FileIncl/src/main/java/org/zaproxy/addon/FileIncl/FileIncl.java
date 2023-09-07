@@ -174,52 +174,52 @@ public class FileIncl extends AbstractAppPlugin {
                 "../../../../../../etc/passwd"
             }
         };
-        
 
         for (String[] payloadGroup : payloads) {
             for (int i = 2; i < payloadGroup.length; i++) {
                 try {
                     HttpMessage testMsg = msg.cloneRequest();
-                    String query = msg.getRequestHeader().getURI().getQuery();
                     String originalContent = getBaseMsg().getResponseBody().toString();
-                    if (query != null && query.contains(payloadGroup[i])) {
-                        query = query.replace(payloadGroup[i], payloadGroup[i]);
-                        testMsg.getRequestHeader().getURI().setQuery(query);
-                        sendAndReceive(testMsg);
-                        int responseCode = testMsg.getResponseHeader().getStatusCode();
-                        String responseBody = testMsg.getResponseBody().toString();
-
-                        if (responseCode == 200) {
-                            boolean isFileIncluded = false;
-                            // Indicators of file inclusion 
-                            String[] fileIndicators = {
-                                "root:",
-                                "apache2.conf",
-                                "nginx.conf",
-                                "robots.txt",
-                                "wp-login.php"
-                            };
-                            String indic = "";
-
-                            for (String indicator : fileIndicators) {
-                                if (responseBody.contains(indicator)) {
-                                    isFileIncluded = true;
-                                    indic = indicator;
-                                    break;
-                                }
+                    sendAndReceive(testMsg);
+                    int responseCode = testMsg.getResponseHeader().getStatusCode();
+                    String responseBody = testMsg.getResponseBody().toString();
+        
+                    if (responseCode == 200) {
+                        boolean isFileIncluded = false;
+                        // Indicators of file inclusion 
+                        String[] fileIndicators = {
+                            "root:",
+                            "apache2.conf",
+                            "nginx.conf",
+                            "robots.txt",
+                            "wp-login.php",
+                            "success",
+                            "error",
+                            "warning",
+                            "fail",
+                            "failed",
+                            "congradulations",
+                        };
+                        String indic = "";
+        
+                        for (String indicator : fileIndicators) {
+                            if (responseBody.contains(indicator)) {
+                                isFileIncluded = true;
+                                indic = indicator;
+                                break;
                             }
-                        
-                            if (isFileIncluded && !originalContent.contains(indic)) {
-                                newAlert()
-                                    .setRisk(Alert.RISK_HIGH)
-                                    .setConfidence(Alert.CONFIDENCE_MEDIUM)
-                                    .setName(payloadGroup[0])
-                                    .setDescription("The path with " + payloadGroup[i] + " appears to expose sensitive data.")
-                                    .setSolution(payloadGroup[1])
-                                    .setEvidence(responseBody)
-                                    .setMessage(testMsg)
-                                    .raise();
-                            }
+                        }
+                    
+                        if (isFileIncluded && !originalContent.contains(indic)) {
+                            newAlert()
+                                .setRisk(Alert.RISK_HIGH)
+                                .setConfidence(Alert.CONFIDENCE_MEDIUM)
+                                .setName(payloadGroup[0])
+                                .setDescription("The path with " + payloadGroup[i] + " appears to expose sensitive data.")
+                                .setSolution(payloadGroup[1])
+                                .setEvidence(responseBody)
+                                .setMessage(testMsg)
+                                .raise();
                         }
                     }
                 } catch (IOException e) {
@@ -227,6 +227,7 @@ public class FileIncl extends AbstractAppPlugin {
                 }
             }
         }
+
     }
     @Override
     public int getRisk() {
