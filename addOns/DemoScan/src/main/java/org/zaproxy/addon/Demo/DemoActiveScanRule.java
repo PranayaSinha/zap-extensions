@@ -189,7 +189,7 @@ public class DemoActiveScanRule extends AbstractAppPlugin {
                             // .setWascId(13) // WASC-13: Information Leakage
                             .setMessage(testMsg)
                             .raise();
-                    return;
+                    //return;
                 }
             } catch (IOException e) {
                 LOGGER.error(e.getMessage(), e);

@@ -17,7 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.zaproxy.addon.Demo;
+package org.zaproxy.addon.TypeJug;
 
 import java.awt.CardLayout;
 import java.awt.Font;
@@ -43,7 +43,7 @@ import org.zaproxy.zap.view.ZapMenuItem;
  *
  * @see #hook(ExtensionHook)
  */
-public class ExtensionDemo extends ExtensionAdaptor {
+public class TjExtension extends ExtensionAdaptor {
 
     // The name is public so that other extensions can access it
     public static final String NAME = "ExtensionDemo";
@@ -67,9 +67,9 @@ public class ExtensionDemo extends ExtensionAdaptor {
 
     // private simpleDemoAPI api;
 
-    private static final Logger LOGGER = LogManager.getLogger(ExtensionDemo.class);
+    private static final Logger LOGGER = LogManager.getLogger(TjExtension.class);
 
-    public ExtensionDemo() {
+    public TjExtension() {
         super(NAME);
         setI18nPrefix(PREFIX);
     }
@@ -154,7 +154,7 @@ public class ExtensionDemo extends ExtensionAdaptor {
                 View.getSingleton()
                         .showWarningDialog(
                                 Constant.messages.getString(
-                                        ExtensionDemo.PREFIX + ".error.nofile",
+                                        TjExtension.PREFIX + ".error.nofile",
                                         f.getAbsolutePath()));
                 return;
             }
