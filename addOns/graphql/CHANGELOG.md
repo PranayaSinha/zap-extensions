@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## Unreleased
 ### Added
+- Fingerprinting check for the Absinthe GraphQL engine.
+
+### Changed
+- Dependency updates.
+
+## [0.19.0] - 2023-09-07
+### Added
 - The add-on now includes example alert functionality for documentation generation purposes (Issue 6119).
 
 ### Changed
@@ -153,6 +160,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   - Import a GraphQL Schema
   - Generate Queries from an imported Schema
 
+[0.19.0]: https://github.com/zaproxy/zap-extensions/releases/graphql-v0.19.0
 [0.18.0]: https://github.com/zaproxy/zap-extensions/releases/graphql-v0.18.0
 [0.17.0]: https://github.com/zaproxy/zap-extensions/releases/graphql-v0.17.0
 [0.16.0]: https://github.com/zaproxy/zap-extensions/releases/graphql-v0.16.0

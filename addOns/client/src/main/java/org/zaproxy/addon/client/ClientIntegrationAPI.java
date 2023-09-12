@@ -41,10 +41,12 @@ public class ClientIntegrationAPI extends ApiImplementor {
 
     private static final String ACTION_REPORT_OBJECT = "reportObject";
     private static final String ACTION_REPORT_EVENT = "reportEvent";
+    private static final String ACTION_REPORT_ZEST_STATEMENT = "reportZestStatement";
     private static final String ACTION_REPORT_ZEST_SCRIPT = "reportZestScript";
 
     private static final String PARAM_OBJECT_JSON = "objectJson";
     private static final String PARAM_EVENT_JSON = "eventJson";
+    private static final String PARAM_STATEMENT_JSON = "statementJson";
     private static final String PARAM_SCRIPT_JSON = "scriptJson";
 
     private static final Logger LOGGER = LogManager.getLogger(ClientIntegrationAPI.class);
@@ -57,6 +59,8 @@ public class ClientIntegrationAPI extends ApiImplementor {
         this.extension = extension;
         this.addApiAction(new ApiAction(ACTION_REPORT_OBJECT, new String[] {PARAM_OBJECT_JSON}));
         this.addApiAction(new ApiAction(ACTION_REPORT_EVENT, new String[] {PARAM_EVENT_JSON}));
+        this.addApiAction(
+                new ApiAction(ACTION_REPORT_ZEST_STATEMENT, new String[] {PARAM_STATEMENT_JSON}));
         this.addApiAction(
                 new ApiAction(ACTION_REPORT_ZEST_SCRIPT, new String[] {PARAM_SCRIPT_JSON}));
 
@@ -131,6 +135,15 @@ public class ClientIntegrationAPI extends ApiImplementor {
                 this.extension.addReportedObject(new ReportedEvent(json));
                 break;
 
+            case ACTION_REPORT_ZEST_STATEMENT:
+                String statementJson = this.getParam(params, PARAM_STATEMENT_JSON, "");
+                LOGGER.debug("Got script: {}", statementJson);
+                try {
+                    this.extension.addZestStatement(statementJson);
+                } catch (Exception e) {
+                    LOGGER.debug(e);
+                }
+                break;
             case ACTION_REPORT_ZEST_SCRIPT:
                 String scriptJson = this.getParam(params, PARAM_SCRIPT_JSON, "");
                 LOGGER.debug("Got script: {}", scriptJson);
@@ -175,6 +188,12 @@ public class ClientIntegrationAPI extends ApiImplementor {
             } else if (body.startsWith(PARAM_EVENT_JSON)) {
                 this.extension.addReportedObject(
                         new ReportedEvent(decodeParam(body, PARAM_EVENT_JSON)));
+            } else if (body.startsWith(PARAM_STATEMENT_JSON)) {
+                try {
+                    this.extension.addZestStatement(decodeParamString(body, PARAM_STATEMENT_JSON));
+                } catch (Exception e) {
+                    LOGGER.debug(e);
+                }
             } else if (body.startsWith(PARAM_SCRIPT_JSON)) {
                 try {
                     this.extension.addZestStatement(decodeParamString(body, PARAM_SCRIPT_JSON));
