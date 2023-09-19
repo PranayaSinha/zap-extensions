@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 
+## [61] - 2023-09-19
+### Added
+- ChromeDriver for x64 arch.
+
+## [60] - 2023-09-18
+### Changed
+- Update ChromeDriver to 117.0.5938.88.
+
+
+
 ## [59] - 2023-09-13
 ### Changed
 - Update ChromeDriver to 117.0.5938.62.
@@ -272,6 +282,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - First release: Firefox v0.13.0 Chrome v2.27 IE 3.0.0
 
+[61]: https://github.com/zaproxy/zap-extensions/releases/webdriverwindows-v61
+[60]: https://github.com/zaproxy/zap-extensions/releases/webdriverwindows-v60
 [59]: https://github.com/zaproxy/zap-extensions/releases/webdriverwindows-v59
 [58]: https://github.com/zaproxy/zap-extensions/releases/webdriverwindows-v58
 [57]: https://github.com/zaproxy/zap-extensions/releases/webdriverwindows-v57
