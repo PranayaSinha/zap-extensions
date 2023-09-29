@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 
+## [0.2.0] - 2023-09-26
+
+### Changed
+- Updated the Chrome extension to v0.0.6.
+- Disable client events automatically only for Zest recording.
+- Create Firefox profile to enable the ZAP extension for all sites.
+
 ## [0.1.0] - 2023-09-19
 
 ### Changed
@@ -16,5 +23,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - First version.
 
+[0.2.0]: https://github.com/zaproxy/zap-extensions/releases/client-v0.2.0
 [0.1.0]: https://github.com/zaproxy/zap-extensions/releases/client-v0.1.0
 [0.0.1]: https://github.com/zaproxy/zap-extensions/releases/client-v0.0.1
