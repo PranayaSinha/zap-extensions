@@ -17,7 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.zaproxy.addon.XPathInj;
+package org.zaproxy.addon.RCE;
 
 import java.awt.CardLayout;
 import java.awt.Font;
@@ -43,14 +43,14 @@ import org.zaproxy.zap.view.ZapMenuItem;
  *
  * @see #hook(ExtensionHook)
  */
-public class ExtensionXPathInj extends ExtensionAdaptor {
+public class ExtensionDemo extends ExtensionAdaptor {
 
     // The name is public so that other extensions can access it
-    public static final String NAME = "ExtensionXPathInj";
+    public static final String NAME = "ExtensionDemo";
 
     // The i18n prefix, by default the package name - defined in one place to make it easier
     // to copy and change this example
-    protected static final String PREFIX = "XPathInj";
+    protected static final String PREFIX = "simpleDemo";
 
     /**
      * Relative path (from add-on package) to load add-on resources.
@@ -67,9 +67,9 @@ public class ExtensionXPathInj extends ExtensionAdaptor {
 
     // private simpleDemoAPI api;
 
-    private static final Logger LOGGER = LogManager.getLogger(ExtensionXPathInj.class);
+    private static final Logger LOGGER = LogManager.getLogger(ExtensionDemo.class);
 
-    public ExtensionXPathInj() {
+    public ExtensionDemo() {
         super(NAME);
         setI18nPrefix(PREFIX);
     }
@@ -154,7 +154,7 @@ public class ExtensionXPathInj extends ExtensionAdaptor {
                 View.getSingleton()
                         .showWarningDialog(
                                 Constant.messages.getString(
-                                        ExtensionXPathInj.PREFIX + ".error.nofile",
+                                        ExtensionDemo.PREFIX + ".error.nofile",
                                         f.getAbsolutePath()));
                 return;
             }

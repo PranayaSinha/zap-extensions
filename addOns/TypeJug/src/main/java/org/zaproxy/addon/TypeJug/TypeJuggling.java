@@ -26,7 +26,7 @@ public class TypeJuggling extends AbstractAppParamPlugin {
     };
 
     private static final String[] TYPE_JUGGLING_INDICATORS = {
-        "Type Juggle Successful",  // Modify this based on possible responses.
+        "Type Juggle Successful",  
         "Type coercion occurred"
     };
 
