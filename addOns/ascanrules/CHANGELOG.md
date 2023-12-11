@@ -4,7 +4,25 @@ All notable changes to this add-on will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
+### Fixed
+- Threshold handling in the Hidden File Finder scan rule.
+- Improved SQL Injection - MsSQL scan rule by using time-based linear regression tests.
 
+## [59] - 2023-12-07
+### Added
+- Support for mutations in reflected XSS rule.
+
+### Changed
+- Depend on newer version of Common Library add-on.
+
+### Fixed
+- Use high and low delays for linear regression time-based tests to fix false positives from delays that were smaller than normal variance in application response times, which affected Command Injection scan rule.
+- Improved SQL Injection - PostgreSQL (Time Based) scan rule by using time-based linear regression tests.
+- Catch correct context while analysing attributes instead of the last attribute where eyecatcher was reflected.
+
+## [58] - 2023-10-12
+### Changed
+- Update minimum ZAP version to 2.14.0.
 
 ## [57] - 2023-09-08
 ### Changed
@@ -443,6 +461,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 
 
+[59]: https://github.com/zaproxy/zap-extensions/releases/ascanrules-v59
+[58]: https://github.com/zaproxy/zap-extensions/releases/ascanrules-v58
 [57]: https://github.com/zaproxy/zap-extensions/releases/ascanrules-v57
 [56]: https://github.com/zaproxy/zap-extensions/releases/ascanrules-v56
 [55]: https://github.com/zaproxy/zap-extensions/releases/ascanrules-v55

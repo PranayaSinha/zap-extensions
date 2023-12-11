@@ -174,6 +174,7 @@ public class ExtensionScriptsUI extends ExtensionAdaptor implements ScriptEventL
             extensionHook.getHookView().addSelectPanel(getScriptsPanel());
             extensionHook.addSessionListener(new ViewSessionChangedListener());
             extensionHook.getHookView().addWorkPanel(getConsolePanel());
+            extensionHook.addOptionsChangedListener(getConsolePanel().getCommandPanel());
             extensionHook.getHookMenu().addPopupMenuItem(getPopupInvokeScriptWithHttpMessageMenu());
             extensionHook.getHookMenu().addPopupMenuItem(getPopupEnableDisableScript());
             extensionHook.getHookMenu().addPopupMenuItem(getPopupRemoveScript());
@@ -189,6 +190,13 @@ public class ExtensionScriptsUI extends ExtensionAdaptor implements ScriptEventL
             extensionHook.getHookMenu().addPopupMenuItem(getPopupMenuItemSaveScript());
             ExtensionHelp.enableHelpKey(getConsolePanel(), "addon.scripts.console");
             ExtensionHelp.enableHelpKey(getScriptsPanel(), "addon.scripts.tree");
+        }
+    }
+
+    @Override
+    public void optionsLoaded() {
+        if (hasView()) {
+            getConsolePanel().getCommandPanel().optionsChanged(getScriptConsoleOptions());
         }
     }
 
@@ -314,7 +322,7 @@ public class ExtensionScriptsUI extends ExtensionAdaptor implements ScriptEventL
         return scriptConsoleOptions;
     }
 
-    private ConsolePanel getConsolePanel() {
+    ConsolePanel getConsolePanel() {
         if (consolePanel == null) {
             consolePanel = new ConsolePanel(this);
             consolePanel.setName(Constant.messages.getString("scripts.panel.title"));
@@ -412,6 +420,7 @@ public class ExtensionScriptsUI extends ExtensionAdaptor implements ScriptEventL
         displayScript(script, true);
     }
 
+    @Override
     public void displayScript(ScriptWrapper script, boolean allowFocus) {
         if (!View.isInitialised()) {
             return;
@@ -674,7 +683,7 @@ public class ExtensionScriptsUI extends ExtensionAdaptor implements ScriptEventL
     @Override
     public void scriptChanged(ScriptWrapper script) {
         if (View.isInitialised()) {
-            this.getScriptsPanel().setButtonStates();
+            getConsolePanel().updateButtonStates();
         }
         if (script.getType().getName().equals(SCRIPT_EXT_TYPE)) {
             // Extender scripts are installed and uninstalled when they are enabled/disabled
@@ -809,6 +818,7 @@ public class ExtensionScriptsUI extends ExtensionAdaptor implements ScriptEventL
         selectNode(node, expand, true);
     }
 
+    @Override
     public void selectNode(ScriptNode node, boolean expand, boolean allowFocus) {
         if (View.isInitialised()) {
             this.getScriptsPanel().showInTree(node, expand, allowFocus);
